@@ -31,6 +31,12 @@ const producer = client.producer({
 })
 ```
 
+Remember to have your producer connect before performing a transaction or your transaction will fail.
+
+```javascript
+await producer.connect()
+```
+
 Within a transaction, you can produce one or more messages. If `transaction.abort` is called, all messages will be rolled back.
 
 ```javascript
